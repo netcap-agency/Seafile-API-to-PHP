@@ -1,3 +1,23 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+define('EMAIL', '');
+define('PASS', '');
+define('CLOUD_URL', '');
+define('CLOUD_PORT', '');
+
+/*
+*	require seafile class and instanciate it
+*/
+require(dirname(__FILE__).DIRECTORY_SEPARATOR.'SeafileAPI.php');
+$seafile = new SeafileAPI(array(
+	'url'		=> CLOUD_URL,
+	'port'		=> CLOUD_PORT,
+	'user'		=> EMAIL,
+	'password'	=> PASS
+));
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,21 +55,6 @@
 
     <div class="container">
 		<?php
-		error_reporting(E_ALL);
-		ini_set('display_errors', 1);
-
-		define('EMAIL', '');
-		define('PASS', '');
-		define('CLOUD_URL', '');
-		define('CLOUD_PORT', '');
-
-		require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'SeafileAPI.php');
-		$seafile = new SeafileAPI(array(
-			'url'		=> CLOUD_URL,
-			'port'		=> CLOUD_PORT,
-			'user'		=> EMAIL,
-			'password'	=> PASS
-		));
 		/*
 		*	Ping Seafile server
 		*/
